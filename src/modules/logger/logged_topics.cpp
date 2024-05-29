@@ -164,7 +164,6 @@ void LoggedTopics::add_default_topics()
 	// always add the first instance
 	add_topic("estimator_baro_bias", 500);
 	add_topic("estimator_gnss_hgt_bias", 500);
-	add_topic("estimator_rng_hgt_bias", 500);
 	add_topic("estimator_ev_pos_bias", 500);
 	add_topic("estimator_event_flags", 0);
 	add_topic("estimator_gps_status", 1000);
@@ -180,7 +179,6 @@ void LoggedTopics::add_default_topics()
 
 	add_optional_topic_multi("estimator_baro_bias", 500, MAX_ESTIMATOR_INSTANCES);
 	add_optional_topic_multi("estimator_gnss_hgt_bias", 500, MAX_ESTIMATOR_INSTANCES);
-	add_optional_topic_multi("estimator_rng_hgt_bias", 500, MAX_ESTIMATOR_INSTANCES);
 	add_optional_topic_multi("estimator_ev_pos_bias", 500, MAX_ESTIMATOR_INSTANCES);
 	add_optional_topic_multi("estimator_event_flags", 0, MAX_ESTIMATOR_INSTANCES);
 	add_optional_topic_multi("estimator_gps_status", 1000, MAX_ESTIMATOR_INSTANCES);
@@ -208,7 +206,6 @@ void LoggedTopics::add_default_topics()
 	// add_optional_topic_multi("estimator_aid_src_gnss_pos", 100, MAX_ESTIMATOR_INSTANCES);
 	// add_optional_topic_multi("estimator_aid_src_mag", 100, MAX_ESTIMATOR_INSTANCES);
 	// add_optional_topic_multi("estimator_aid_src_optical_flow", 100, MAX_ESTIMATOR_INSTANCES);
-	// add_optional_topic_multi("estimator_aid_src_terrain_optical_flow", 100, MAX_ESTIMATOR_INSTANCES);
 	// add_optional_topic_multi("estimator_aid_src_ev_yaw", 100, MAX_ESTIMATOR_INSTANCES);
 	add_optional_topic_multi("estimator_aid_src_aux_global_position", 100, MAX_ESTIMATOR_INSTANCES);
 
@@ -266,7 +263,6 @@ void LoggedTopics::add_default_topics()
 	// EKF replay
 	add_topic("estimator_baro_bias");
 	add_topic("estimator_gnss_hgt_bias");
-	add_topic("estimator_rng_hgt_bias");
 	add_topic("estimator_ev_pos_bias");
 	add_topic("estimator_event_flags");
 	add_topic("estimator_gps_status");
@@ -300,8 +296,6 @@ void LoggedTopics::add_default_topics()
 	add_optional_topic_multi("estimator_aid_src_gravity", 0, MAX_ESTIMATOR_INSTANCES);
 	add_optional_topic_multi("estimator_aid_src_mag", 0, MAX_ESTIMATOR_INSTANCES);
 	add_optional_topic_multi("estimator_aid_src_optical_flow", 0, MAX_ESTIMATOR_INSTANCES);
-	add_optional_topic_multi("estimator_aid_src_terrain_optical_flow", 0, MAX_ESTIMATOR_INSTANCES);
-	add_optional_topic_multi("estimator_aid_src_terrain_range_finder", 0, MAX_ESTIMATOR_INSTANCES);
 	add_optional_topic_multi("estimator_aid_src_sideslip", 0, MAX_ESTIMATOR_INSTANCES);
 
 #endif /* CONFIG_ARCH_BOARD_PX4_SITL */
