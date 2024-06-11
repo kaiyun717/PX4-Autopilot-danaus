@@ -124,10 +124,9 @@ void Ekf::startFlowFusion()
 		_hagl_sensor_status.flags.flow = true;
 	}
 
-	_control_status.flags.opt_flow = true;
-
 	if (isHorizontalAidingActive()) {
 		if (!_aid_src_optical_flow.innovation_rejected) {
+			ECL_INFO("starting optical flow no reset");
 			fuseOptFlow(_hagl_sensor_status.flags.flow);
 
 		} else if (_hagl_sensor_status.flags.flow && !_hagl_sensor_status.flags.range_finder) {
@@ -147,6 +146,8 @@ void Ekf::startFlowFusion()
 			resetHaglFlow();
 		}
 	}
+
+	_control_status.flags.opt_flow = true; // needs to be here because of isHorizontalAidingActive
 }
 
 void Ekf::resetFlowFusion()
@@ -170,6 +171,7 @@ void Ekf::resetFlowFusion()
 
 void Ekf::resetHaglFlow()
 {
+	ECL_INFO("reset hagl to flow");
 	// TODO: use the flow data
 	_state.terrain = fmaxf(0.0f, _state.pos(2));
 	P.uncorrelateCovarianceSetVariance<1>(State::terrain.idx, 100.f);

@@ -111,7 +111,7 @@ TEST_F(EkfHeightFusionTest, baroRef)
 	EXPECT_FALSE(_ekf_wrapper.isIntendingExternalVisionHeightFusion());
 
 	// AND WHEN: the baro data increases
-	const float baro_increment = 5.f;
+	const float baro_increment = 4.f;
 	_sensor_simulator._baro.setData(_sensor_simulator._baro.getData() + baro_increment);
 	_sensor_simulator.runSeconds(60);
 
@@ -290,7 +290,7 @@ TEST_F(EkfHeightFusionTest, changeEkfOriginAlt)
 	reset_logging_checker.capturePostResetState();
 	EXPECT_NEAR(_ekf->getBaroBiasEstimatorStatus().bias, _sensor_simulator._baro.getData() + alt_increment, 0.2f);
 
-	EXPECT_NEAR(_ekf->getTerrainVertPos(), -alt_increment, 1.f);
+	EXPECT_NEAR(_ekf->getTerrainVertPos(), alt_increment, 1.f);
 	EXPECT_TRUE(reset_logging_checker.isVerticalVelocityResetCounterIncreasedBy(0));
 	EXPECT_TRUE(reset_logging_checker.isVerticalPositionResetCounterIncreasedBy(1));
 }
