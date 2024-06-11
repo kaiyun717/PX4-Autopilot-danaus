@@ -1,0 +1,153 @@
+#!/bin/sh
+#
+# @name DanausA Quadrotor SITL
+#
+# @type Quadrotor X
+#
+
+. ${R}etc/init.d/rc.mc_defaults
+
+
+param set-default CA_AIRFRAME 0
+
+param set-default CA_ROTOR_COUNT 4
+
+param set-default BAT1_N_CELLS 3
+# param set-default BAT1_V_DIV 10.2822	# Parameter not found
+
+param set-default CA_ROTOR0_PX 0.0900
+param set-default CA_ROTOR0_PY 0.0700
+param set-default CA_ROTOR0_KM 0.05	# CCW
+
+param set-default CA_ROTOR1_PX -0.0900
+param set-default CA_ROTOR1_PY -0.0700
+param set-default CA_ROTOR1_KM 0.05	# CCW
+
+param set-default CA_ROTOR2_PX 0.0900
+param set-default CA_ROTOR2_PY -0.0700
+param set-default CA_ROTOR2_KM -0.05	# CW
+
+param set-default CA_ROTOR3_PX -0.0900
+param set-default CA_ROTOR3_PY 0.0700
+param set-default CA_ROTOR3_KM -0.05	# CW
+
+COM_OF_LOSS_T = 5
+# COM_DL_LOSS_T = 5
+
+# param set-default COM_ARM_HFLT_CHK 0
+# param set-default COM_ARM_SDCARD 0
+# param set-default COM_DL_LOSS_T 5
+# param set-default COM_FLTMODE1 10
+# param set-default COM_FLTMODE2 11
+# param set-default COM_FLTMODE3 2
+# param set-default COM_FLTMODE4 1
+# param set-default COM_FLTMODE5 4
+# param set-default COM_RC_IN_MODE 1
+# param set-default COM_RC_LOSS_T 10.0000
+# param set-default EKF2_EV_DELAY 20.0000
+# param set-default EKF2_HGT_REF 3
+# param set-default EKF2_MAG_TYPE 5
+# # param set-default MAV_1_CONFIG 301		# Parameter not found
+# param set-default MAV_1_RATE 10000
+# param set-default MC_AT_EN 1
+
+###### PARAM FROM DANAUS12 AUTOTUNE IN REAL FLIGHT ######
+param set-default MC_PITCHRATE_D 0.0028
+param set-default MC_PITCHRATE_I 0.1680
+param set-default MC_PITCHRATE_P 0.1378
+param set-default MC_ROLLRATE_D 0.0017
+param set-default MC_ROLLRATE_I 0.1177
+param set-default MC_ROLLRATE_P 0.0936
+param set-default MC_YAWRATE_D 0.0004
+param set-default MC_YAWRATE_I 0.1099
+param set-default MC_YAWRATE_P 0.0976
+param set-default MC_YAW_P 6.5000
+
+
+###### PARAM FROM MANUAL TUNING ######
+# param set-default MC_PITCHRATE_D 0.0034
+# param set-default MC_PITCHRATE_I 0.2
+# param set-default MC_PITCHRATE_P 0.65
+# param set-default MC_ROLLRATE_D 0.0038
+# param set-default MC_ROLLRATE_I 0.3
+# param set-default MC_ROLLRATE_P 0.65
+# param set-default MC_YAWRATE_D 0.000
+# param set-default MC_YAWRATE_I 0.12
+# param set-default MC_YAWRATE_P 1
+# param set-default MC_YAW_P 6.5000
+# param set-default MC_ROLL_P 6.42
+# param set-default MC_PITCH_P 6.5000
+
+
+
+# param set-default NAV_DLL_ACT 6
+# param set-default NAV_RCL_ACT 6
+param set-default PWM_MAIN_FUNC1 101
+param set-default PWM_MAIN_FUNC2 102
+param set-default PWM_MAIN_FUNC3 103
+param set-default PWM_MAIN_FUNC4 104
+# # param set-default PWM_MAIN_MAX1 1900		# Parameter not found
+# # param set-default PWM_MAIN_MAX2 1900		# Parameter not found
+# # param set-default PWM_MAIN_MAX3 1900		# Parameter not found
+# # param set-default PWM_MAIN_MAX4 1900		# Parameter not found
+# # param set-default PWM_MAIN_MIN1 1100		# Parameter not found
+# # param set-default PWM_MAIN_MIN2 1100		# Parameter not found
+# # param set-default PWM_MAIN_MIN3 1100		# Parameter not found
+# # param set-default PWM_MAIN_MIN4 1100		# Parameter not found
+# # param set-default PWM_MAIN_TIM0 -1		# Parameter not found
+# # param set-default PWM_MAIN_TIM1 -1		# Parameter not found
+# # param set-default SER_WIFI_BAUD 921600	# Parameter not found
+
+
+
+# ==============================================================================
+
+# param set-default CA_ROTOR0_PX 0.09
+# param set-default CA_ROTOR0_PY 0.07
+# param set-default CA_ROTOR0_KM 0.05	# CCW
+
+# param set-default CA_ROTOR1_PX -0.09
+# param set-default CA_ROTOR1_PY -0.07
+# param set-default CA_ROTOR1_KM 0.05	# CCW
+
+# param set-default CA_ROTOR2_PX 0.09
+# param set-default CA_ROTOR2_PY -0.07
+# param set-default CA_ROTOR2_KM -0.05	# CW
+
+# param set-default CA_ROTOR3_PX -0.09
+# param set-default CA_ROTOR3_PY 0.07
+# param set-default CA_ROTOR3_KM -0.05	# CW
+
+# param set-default PWM_MAIN_FUNC1 101
+# param set-default PWM_MAIN_FUNC2 102
+# param set-default PWM_MAIN_FUNC3 103
+# param set-default PWM_MAIN_FUNC4 104
+
+# # param set-default NAV_DLL_ACT 0
+# # param set-default NAV_RCL_ACT 0
+# # param set-default COM_RCL_EXCEPT 4
+# param set-default COM_RC_IN_MODE 1
+
+# # param set-default MAV_1_CONFIG 301		# Parameter not found
+
+# # param set-default MC_AT_EN 1			# Off for now since unstable behavior
+# # param set-default MC_PITCHRATE_D 0.0072	# Off for now since unstable behavior
+# # param set-default MC_PITCHRATE_I 0.2750	# Off for now since unstable behavior
+# # param set-default MC_PITCHRATE_P 0.1842	# Off for now since unstable behavior
+# # param set-default MC_PITCH_P 5.1827		# Off for now since unstable behavior
+# # param set-default MC_ROLLRATE_D 0.0018	# Off for now since unstable behavior
+# # param set-default MC_ROLLRATE_I 0.1000	# Off for now since unstable behavior
+# # param set-default MC_ROLLRATE_P 0.0867	# Off for now since unstable behavior
+# # param set-default MC_YAWRATE_D 0.0002		# Off for now since unstable behavior
+# # param set-default MC_YAWRATE_P 0.0706		# Off for now since unstable behavior
+# # param set-default MC_YAW_P 6.5000
+
+# # param set-default PWM_MAIN_MAX1 1900		# Parameter not found
+# # param set-default PWM_MAIN_MAX2 1900		# Parameter not found
+# # param set-default PWM_MAIN_MAX3 1900		# Parameter not found
+# # param set-default PWM_MAIN_MAX4 1900		# Parameter not found
+
+# # param set-default PWM_MAIN_MIN1 1100		# Parameter not found
+# # param set-default PWM_MAIN_MIN2 1100		# Parameter not found
+# # param set-default PWM_MAIN_MIN3 1100		# Parameter not found
+# # param set-default PWM_MAIN_MIN4 1100		# Parameter not found

@@ -71,6 +71,8 @@ if(gazebo_FOUND)
 	)
 
 	set(models
+		danaus12
+		danaus12_old
 		advanced_plane
 		believer
 		boat

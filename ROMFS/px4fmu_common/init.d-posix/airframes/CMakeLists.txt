@@ -32,7 +32,8 @@
 ############################################################################
 
 px4_add_romfs_files(
-
+	7000_gazebo-classic_danaus12
+	7010_gazebo-classic_danaus12_old
 	1010_gazebo-classic_iris_opt_flow
 	1010_gazebo-classic_iris_opt_flow.post
 	1011_gazebo-classic_iris_irlock
